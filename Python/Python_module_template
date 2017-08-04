@@ -1,0 +1,15 @@
+#%Module1.0#####################################################################
+##
+## modules Python
+##
+## modules/Python/$PY_VERSION  Written by Holger Hoefling
+##
+proc ModulesHelp { } {
+        global version modroot
+
+        puts stderr "Python/$PY_VERSION - sets the PATH for Python version $PY_VERSION"
+}
+
+module-whatis   "Python/$PY_VERSION - sets the PATH for Python/$PY_VERSION"
+
+prepend-path    PATH            $PY_INSTALL_DIR/Python-$PY_VERSION/bin
