@@ -1,0 +1,15 @@
+#%Module1.0#####################################################################
+##
+## modules emacs
+##
+## modules/emacs/24.5  Written by Holger Hoefling
+##
+proc ModulesHelp { } {
+        global version modroot
+
+        puts stderr "emacs/24.5 - sets the PATH for emacs-24.5"
+}
+
+module-whatis   "emacs/24.5 - sets the PATH for emacs-24.5"
+
+prepend-path    PATH            $EMACS_INSTALL_DIR/bin
