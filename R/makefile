@@ -12,7 +12,7 @@ ${R_INSTALL_DIR}/R-${R_VERSION}/bin/R: R-${R_VERSION}
 	cd R-${R_VERSION};\
 	mkdir -p ${R_INSTALL_DIR}/R-${R_VERSION};\
 	./configure --prefix=${R_INSTALL_DIR}/R-${R_VERSION};\
-	make\
+	make;\
 	make install
 
 ~/modules/R/${R_VERSION}: ${R_INSTALL_DIR}/R-${R_VERSION}/bin/R

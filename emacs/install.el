@@ -6,6 +6,7 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
+(package-refresh-contents)
 
 (mapcar (lambda (package)
           ; install package if not already installed
@@ -13,11 +14,4 @@
             (package-install package)))
 
         ; list of packages to be installed
-        '(yasnippet
-	  ess
-	  auto-complete
-	  polymode
-          markdown-mode
-          switch-window
-	  elpy
-          color-theme))
+        '(yasnippet ess auto-complete polymode markdown-mode switch-window elpy color-theme))
