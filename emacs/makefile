@@ -1,4 +1,4 @@
-.PHONY: install all
+.PHONY: all
 
 all: ~/modules/emacs/24.5 ~/.emacs.d/elpa 
 
