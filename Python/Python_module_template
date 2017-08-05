@@ -12,4 +12,5 @@ proc ModulesHelp { } {
 
 module-whatis   "Python/$PY_VERSION - sets the PATH for Python/$PY_VERSION"
 
+conflict $PY_EXEC
 prepend-path    PATH            $PY_INSTALL_DIR/Python-$PY_VERSION/bin

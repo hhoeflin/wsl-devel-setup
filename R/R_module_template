@@ -12,4 +12,5 @@ proc ModulesHelp { } {
 
 module-whatis   "R/$R_VERSION - sets the PATH for R/$R_VERSION"
 
+conflict R
 prepend-path    PATH            $R_INSTALL_DIR/R-$R_VERSION/bin

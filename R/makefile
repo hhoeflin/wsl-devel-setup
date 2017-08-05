@@ -15,6 +15,6 @@ ${R_INSTALL_DIR}/R-${R_VERSION}/bin/R: R-${R_VERSION}
 	make;\
 	make install
 
-~/modules/R/${R_VERSION}: ${R_INSTALL_DIR}/R-${R_VERSION}/bin/R
+~/modules/R/${R_VERSION}: ${R_INSTALL_DIR}/R-${R_VERSION}/bin/R R_module_template
 	mkdir -p ~/modules/R
 	cat R_module_template | envsubst '$$R_INSTALL_DIR $$R_VERSION' > ~/modules/R/${R_VERSION}
