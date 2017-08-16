@@ -5,10 +5,15 @@ sed -i 's/deb /deb-src /g' temp/sources.list.deb_src
 cp /etc/apt/sources.list /etc/apt/sources.list.bkp
 cat ./temp/sources.list.deb_src | sudo tee -a /etc/apt/sources.list
 
-# install dependencies for building r from source
+# install dependencies for building r from source and devtools
 apt-get update
 apt-get --yes upgrade 
+apt-get --yes install build-essential
 apt-get --yes build-dep r-base
+apt-get --yes install libssl-dev
+apt-get --yes install libxml2-dev
+apt-get --yes install pandoc
+apt-get --yes install nautilus
 
 # install dependencies for building python from source
 apt-get --yes build-dep python
