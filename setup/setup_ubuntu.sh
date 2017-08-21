@@ -35,15 +35,18 @@ apt-get --yes install environment-modules
 cp ~/.bashrc ~/.bashrc.old
 
 # set up modules
-cat add_bashrc_modules > .bashrc_temp
-cat ~/.bashrc >> .bashrc_temp
-mv -f .bashrc_temp ~/.bashrc
+if !(grep -q "^module().*" ~/.bashrc) then
+  cat add_bashrc_modules > .bashrc_temp
+  cat ~/.bashrc >> .bashrc_temp
+  mv -f .bashrc_temp ~/.bashrc
+  # set up use of modulerc 
+  echo '#%Module' > ~/.modulerc
+  echo 'module use $HOME/modules' >> ~/.modulerc
+fi
 
 # export the display variable
-echo "" >> ~/.bashrc
-echo '#set DISPLAY variable for X-server' >> ~/.bashrc
-echo 'export DISPLAY=:0' >> ~/.bashrc
-
-# set up the modulerc
-echo '#%Module' > ~/.modulerc
-echo 'module use $HOME/modules' >> ~/.modulerc
+if !(grep -q "^export DISPLAY.*" ~/.bashrc) then
+  echo "" >> ~/.bashrc
+  echo '#set DISPLAY variable for X-server' >> ~/.bashrc
+  echo 'export DISPLAY=:0' >> ~/.bashrc
+fi
