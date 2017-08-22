@@ -1,31 +1,18 @@
 # add source repositories as needed
 mkdir temp
-cp /etc/apt/sources.list ./temp/sources.list.deb_src
-sed -i 's/deb /deb-src /g' temp/sources.list.deb_src
-cp /etc/apt/sources.list /etc/apt/sources.list.bkp
-cat ./temp/sources.list.deb_src | sudo tee -a /etc/apt/sources.list
+sudo cp /etc/apt/sources.list ./temp/sources.list.deb_src
+sudo sed -i 's/deb /deb-src /g' temp/sources.list.deb_src
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bkp
+sudo cat ./temp/sources.list.deb_src | sudo tee -a /etc/apt/sources.list
 
 # install dependencies for building r from source and devtools
 # also a number of other useful tools
-apt-get update
-apt-get --yes upgrade 
-apt-get --yes install build-essential
-apt-get --yes build-dep r-base
-apt-get --yes install libssl-dev
-apt-get --yes install libxml2-dev
-apt-get --yes install pandoc
-apt-get --yes install nautilus
-apt-get --yes install iceweasel
-apt-get --yes install evince
+sudo apt-get update
+sudo apt-get --yes upgrade 
+sudo apt-get --yes install build-essential libssl-dev libxml2-dev pandoc nautilus iceweasel evince gedit environment-modules libhdf5-dev
 
-# install dependencies for building python from source
-apt-get --yes build-dep python
+sudo apt-get --yes build-dep r-base python 
 
-# also install some standard programs
-apt-get --yes install gedit
-
-# environment modules
-apt-get --yes install environment-modules
 
 ###################################
 # need to make additons to .bashrc
@@ -35,15 +22,23 @@ apt-get --yes install environment-modules
 cp ~/.bashrc ~/.bashrc.old
 
 # set up modules
-cat add_bashrc_modules > .bashrc_temp
-cat ~/.bashrc >> .bashrc_temp
-mv -f .bashrc_temp ~/.bashrc
+if !(grep -q "^module().*" ~/.bashrc) then
+  cat add_bashrc_modules > .bashrc_temp
+  cat ~/.bashrc >> .bashrc_temp
+  mv -f .bashrc_temp ~/.bashrc
+  # set up use of modulerc 
+  echo '#%Module' > ~/.modulerc
+  echo 'module use $HOME/modules' >> ~/.modulerc
+fi
+
+if !(grep -q "^module use \\$HOME/modules.*" ~/.bashrc) then
+  echo '#%Module' > ~/.modulerc
+  echo 'module use $HOME/modules' >> ~/.modulerc
+fi
 
 # export the display variable
-echo "" >> ~/.bashrc
-echo '#set DISPLAY variable for X-server' >> ~/.bashrc
-echo 'export DISPLAY=:0' >> ~/.bashrc
-
-# set up the modulerc
-echo '#%Module' > ~/.modulerc
-echo 'module use $HOME/modules' >> ~/.modulerc
+if !(grep -q "^export DISPLAY.*" ~/.bashrc) then
+  echo "" >> ~/.bashrc
+  echo '#set DISPLAY variable for X-server' >> ~/.bashrc
+  echo 'export DISPLAY=:0' >> ~/.bashrc
+fi

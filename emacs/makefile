@@ -5,12 +5,10 @@ all: ~/modules/emacs/24.5 ~/.emacs.d/elpa
 emacs-24.5.tar.xz:
 	wget https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz
 
-emacs-24.5: emacs-24.5.tar.xz
-	apt-get --yes install libxaw7-dev libncurses5-dev
-	apt-get --yes install libjpeg-dev libpng-dev libtiff-dev libgif-dev
-	tar kxvf emacs-24.5.tar.xz
-
-${EMACS_INSTALL_DIR}/bin/emacs: emacs-24.5
+${EMACS_INSTALL_DIR}/bin/emacs: emacs-24.5.tar.xz
+	sudo apt-get --yes install libxaw7-dev libncurses5-dev;\
+	sudo apt-get --yes install libjpeg-dev libpng-dev libtiff-dev libgif-dev;\
+	tar kxvf emacs-24.5.tar.xz;\
 	cd emacs-24.5; \
 	mkdir -p ${EMACS_INSTALL_DIR};\
 	./configure --without-dbus --without-gconf --without-gsettings --with-x-toolkit=athena --prefix=${EMACS_INSTALL_DIR};\

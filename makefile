@@ -1,4 +1,6 @@
-.PHONY: all emacs-24.5 R-3.4.1 R-3.3.3 R-3.2.5 Python-2.7.13 Python-3.6.2 R Python hdf5 hdf5-1.8.17
+SHELL=/bin/bash
+.PHONY: all emacs-24.5 R-3.4.1 R-3.3.3 R-3.2.5 Python-2.7.13 Python-3.6.2 R Python hdf5 hdf5-1.10.1\
+	hdf5-1.8.19 hdf5-1.8.17 hdf5-1.8.14 hdf5-1.8.12
 
 ifndef INSTALL_DIR
 INSTALL_DIR=${HOME}/prog
