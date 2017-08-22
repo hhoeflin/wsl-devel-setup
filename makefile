@@ -1,3 +1,4 @@
+SHELL=/bin/bash
 .PHONY: all emacs-24.5 R-3.4.1 R-3.3.3 R-3.2.5 Python-2.7.13 Python-3.6.2
 
 ifndef INSTALL_DIR
