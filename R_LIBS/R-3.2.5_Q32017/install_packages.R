@@ -146,7 +146,7 @@ available.internet <- available.packages(contriburl=contrib.url(getOption("repos
 available.local <- available.packages(contriburl=local.contriburl)
 
 ## now we need to enrich this list by its dependencies
-packages.to.download <- pkgDep(packages.requested, repos=notDownload.contrib, type="source", suggests=FALSE,
+packages.to.download <- pkgDep(packages.requested, type="source", suggests=FALSE,
                               availPkgs = available.all)
 
 
@@ -185,7 +185,7 @@ packages.missing <- setdiff(packages.not.download, available.download[["Package"
 ## what to do if some packages that were supposed to be downloaded are not available
 if(length(packages.missing) > 0) {
     stop(paste("The following packages were supposed to be downloaded but are missing:",
-               paste(packages.missing, collpase=", ")))
+               paste(packages.missing, collapse=", ")))
 }
 
 
