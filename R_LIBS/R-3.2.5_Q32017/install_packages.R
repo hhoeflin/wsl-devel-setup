@@ -232,6 +232,14 @@ if(nrow(downloaded.to.install) > 0) {
 
 ## return a document with all the now installed packages
 packs.installed <- installed.packages(lib.loc=installRLIB)
+
+## throw an error if there is an issue
+packages.missing <- setdiff(packages.requested, packs.installed[, "Package"])
+if(length(packages.missing) > 0) {
+    stop(paste("The following packages were supposed to be downloaded but are missing:",
+               paste(packages.missing, collapse=", ")))
+}
+
 write.csv(as.data.frame(packs.installed), file=manifest.file)
 quit(save="no")
 
