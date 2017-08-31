@@ -22,4 +22,4 @@ ${HDF5_INSTALL_DIR}/${HDF5_NAME}/bin/h5cc: ${HDF5_NAME}
 
 ~/modules/hdf5/${HDF5_VERSION}: ${HDF5_INSTALL_DIR}/${HDF5_NAME}/bin/h5cc HDF5_module_template
 	mkdir -p ~/modules/hdf5
-	cat HDF5_module_template | envsubst '$$HDF5_INSTALL_DIR $$HDF5_VERSION' > ~/modules/hdf5/${HDF5_VERSION}
+	cat HDF5_module_template | HDF5_VERSION=${HDF5_VERSION} envsubst '$$HDF5_INSTALL_DIR $$HDF5_VERSION' > ~/modules/hdf5/${HDF5_VERSION}
