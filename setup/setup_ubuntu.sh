@@ -9,7 +9,7 @@ sudo cat ./temp/sources.list.deb_src | sudo tee -a /etc/apt/sources.list
 # also a number of other useful tools
 sudo apt-get update
 sudo apt-get --yes upgrade 
-sudo apt-get --yes install build-essential libssl-dev libxml2-dev pandoc nautilus iceweasel evince gedit environment-modules libhdf5-dev
+sudo apt-get --yes install build-essential libssl-dev libxml2-dev pandoc nautilus iceweasel evince gedit environment-modules libhdf5-dev qpdf
 
 sudo apt-get --yes build-dep r-base python 
 
