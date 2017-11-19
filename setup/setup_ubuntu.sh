@@ -29,11 +29,13 @@ if !(grep -q "^module().*" ~/.bashrc) then
   # set up use of modulerc 
   echo '#%Module' > ~/.modulerc
   echo 'module use $HOME/modules' >> ~/.modulerc
+  mkdir -p $HOME/modules
 fi
 
 if !(grep -q "^module use \\$HOME/modules.*" ~/.bashrc) then
   echo '#%Module' > ~/.modulerc
   echo 'module use $HOME/modules' >> ~/.modulerc
+  mkdir -p $HOME/modules
 fi
 
 # export the display variable
