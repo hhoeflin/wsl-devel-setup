@@ -14,4 +14,4 @@
             (package-install package)))
 
         ; list of packages to be installed
-        '(yasnippet ess auto-complete polymode markdown-mode switch-window elpy color-theme ace-window use-package))
+        '(yasnippet ess auto-complete polymode markdown-mode switch-window elpy color-theme ace-window use-package mmm-mode))

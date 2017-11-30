@@ -2,7 +2,7 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-               ("marmalade" . "http://marmalade-repo.org/packages/")
+               ("marmalade" . "https://marmalade-repo.org/packages/")
                ("melpa" . "http://melpa.milkbox.net/packages/")
 ))
   (package-initialize)
@@ -145,3 +145,56 @@
 )
 
 (global-set-key (kbd "<f8>") 'revert-all-buffers)
+
+
+;; define a backtab
+(global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
+(defun un-indent-by-removing-4-spaces ()
+  "remove 4 spaces from beginning of of line"
+  (interactive)
+  (save-excursion
+    (save-match-data
+      (beginning-of-line)
+      ;; get rid of tabs at beginning of line
+        (when (looking-at "^\\s-+")
+            (untabify (match-beginning 0) (match-end 0)))
+        (when (looking-at "^    ")
+            (replace-match "")))))
+
+(use-package mmm-mode
+  :ensure t
+  :defer t
+  :commands mmm-mode
+  :init
+  (add-hook 'python-mode-hook 'mmm-mode)
+  :config
+
+  ;; Add python + rst major mode configuration.
+  (defun rst-python-statement-is-docstring (begin)
+    "Return true if beginning of statement is BEGIN."
+    (save-excursion
+      (save-match-data
+        (python-nav-beginning-of-statement)
+        (looking-at-p begin))))
+
+  (defun rst-python-front-verify ()
+    "Verify that we're looking at a python docstring."
+    (rst-python-statement-is-docstring (match-string 0)))
+
+  (setq mmm-parse-when-idle 't)
+  (add-to-list 'mmm-save-local-variables 'adaptive-fill-regexp)
+  (add-to-list 'mmm-save-local-variables 'fill-paragraph-function)
+
+  (mmm-add-classes
+   '((text-python-docstrings
+      :submode text-mode
+      :face mmm-comment-submode-face
+      :front "u?\\(\"\"\"\\|\'\'\'\\)"
+      :front-verify rst-python-front-verify
+      :back "~1"
+      :end-not-begin t
+      :save-matches 1
+      :insert ((?d embdocstring nil @ "u\"\"\"" @ _ @ "\"\"\"" @))
+      :delimiter-mode nil)))
+
+  (mmm-add-mode-ext-class 'python-mode nil 'text-python-docstrings))
