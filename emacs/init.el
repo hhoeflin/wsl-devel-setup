@@ -54,25 +54,6 @@
    (sqlite . t)
    ))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(electric-indent-mode nil)
- '(ess-default-style (quote RRR))
- '(inhibit-startup-screen t)
- '(org-confirm-babel-evaluate nil)
- '(org-src-fontify-natively t)
- '(org-startup-truncated nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-
 ;; Emacs jump to last line after eval in ir
 (setq comint-scroll-to-bottom-on-input t)
 (setq comint-scroll-to-bottom-on-output t)
@@ -94,7 +75,6 @@
 
 ;; make emacs work with clipboard
 (setq x-select-enable-clipboard t)
-
 (require 'poly-R)
 (require 'poly-markdown)
 
@@ -161,6 +141,16 @@
         (when (looking-at "^    ")
             (replace-match "")))))
 
+(add-hook 'text-mode-hook
+          '(lambda ()
+             (setq indent-tabs-mode nil)
+             (setq indent-line-function (quote tab-to-tab-stop))))
+
+(setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
+                          64 68 72 76 80 84 88 92 96 100 104 108 112
+                          116 120))
+(setq whitespace-style '(trailing tabs newline tab-mark newline-mark))
+
 (use-package mmm-mode
   :ensure t
   :defer t
@@ -186,8 +176,8 @@
   (add-to-list 'mmm-save-local-variables 'fill-paragraph-function)
 
   (mmm-add-classes
-   '((text-python-docstrings
-      :submode text-mode
+   '((rst-python-docstrings
+      :submode rst-mode
       :face mmm-comment-submode-face
       :front "u?\\(\"\"\"\\|\'\'\'\\)"
       :front-verify rst-python-front-verify
@@ -197,4 +187,4 @@
       :insert ((?d embdocstring nil @ "u\"\"\"" @ _ @ "\"\"\"" @))
       :delimiter-mode nil)))
 
-  (mmm-add-mode-ext-class 'python-mode nil 'text-python-docstrings))
+  (mmm-add-mode-ext-class 'python-mode nil 'rst-python-docstrings))
