@@ -98,15 +98,6 @@
 
 
 
-(setq python-shell-interpreter "ipython"
-;       python-shell-interpreter-args "--simple-prompt --pprint")
-       python-shell-interpreter-args "-i")
-
-;  some key bindings
-(define-key elpy-mode-map (kbd "<f12>") `elpy-shell-send-region-or-buffer)
-(define-key elpy-mode-map (kbd "<f11>") `elpy-shell-send-current-statement)
-(define-key elpy-mode-map (kbd "<f10>") `python-shell-send-defun)
-(define-key elpy-mode-map (kbd "<f9>") `elpy-shell-switch-to-shell)
 
 ;; revert all buffers; useful in git
 (defun revert-all-buffers ()
@@ -126,6 +117,12 @@
 
 (global-set-key (kbd "<f8>") 'revert-all-buffers)
 
+
+;  some key bindings
+(define-key elpy-mode-map (kbd "<f12>") `elpy-shell-send-region-or-buffer)
+(define-key elpy-mode-map (kbd "<f11>") `elpy-shell-send-current-statement)
+(define-key elpy-mode-map (kbd "<f10>") `python-shell-send-defun)
+(define-key elpy-mode-map (kbd "<f9>") `elpy-shell-switch-to-shell)
 
 ;; define a backtab
 (global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
@@ -188,3 +185,7 @@
       :delimiter-mode nil)))
 
   (mmm-add-mode-ext-class 'python-mode nil 'rst-python-docstrings))
+
+(setq python-shell-interpreter "ipython"
+;       python-shell-interpreter-args "--simple-prompt --pprint")
+       python-shell-interpreter-args "-i")
