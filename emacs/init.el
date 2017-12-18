@@ -91,10 +91,6 @@
 (global-set-key (kbd "C-x p") 'ace-window)
 
 
-;; emacs and python as well as ipython
-(package-initialize)
-(elpy-enable)
-(elpy-use-ipython)
 
 
 
@@ -117,6 +113,10 @@
 
 (global-set-key (kbd "<f8>") 'revert-all-buffers)
 
+
+;; emacs and python as well as ipython
+(package-initialize)
+(elpy-enable)
 
 ;  some key bindings
 (define-key elpy-mode-map (kbd "<f12>") `elpy-shell-send-region-or-buffer)
@@ -186,6 +186,7 @@
 
   (mmm-add-mode-ext-class 'python-mode nil 'rst-python-docstrings))
 
+(elpy-use-ipython)
 (setq python-shell-interpreter "ipython"
 ;       python-shell-interpreter-args "--simple-prompt --pprint")
        python-shell-interpreter-args "-i")
