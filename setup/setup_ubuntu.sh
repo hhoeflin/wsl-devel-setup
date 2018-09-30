@@ -9,7 +9,7 @@ sudo cat ./temp/sources.list.deb_src | sudo tee -a /etc/apt/sources.list
 # also a number of other useful tools
 sudo apt-get update
 sudo apt-get --yes upgrade 
-sudo apt-get --yes install build-essential libssl-dev libxml2-dev pandoc nautilus iceweasel evince gedit environment-modules libhdf5-dev qpdf
+sudo apt-get --yes install build-essential libssl-dev libxml2-dev pandoc nautilus iceweasel evince gedit environment-modules libhdf5-dev qpdf emacs
 
 sudo apt-get --yes build-dep r-base python 
 
@@ -29,11 +29,13 @@ if !(grep -q "^module().*" ~/.bashrc) then
   # set up use of modulerc 
   echo '#%Module' > ~/.modulerc
   echo 'module use $HOME/modules' >> ~/.modulerc
+  mkdir -p $HOME/modules
 fi
 
 if !(grep -q "^module use \\$HOME/modules.*" ~/.bashrc) then
   echo '#%Module' > ~/.modulerc
   echo 'module use $HOME/modules' >> ~/.modulerc
+  mkdir -p $HOME/modules
 fi
 
 # export the display variable
