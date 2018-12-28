@@ -34,13 +34,13 @@ R-3.2.5:
 	cd R; make R_INSTALL_DIR=${INSTALL_DIR}/R R_VERSION=3.2.5
 
 Python-2.7.13:
-	cd Python; make PY_INSTALL_DIR=${INSTALL_DIR}/Python PY_VERSION=2.7.13 PY_EXEC=python
+	cd Python2; make PY_INSTALL_DIR=${INSTALL_DIR}/Python PY_VERSION=2.7.13 
 
 Python-3.6.2:
-	cd Python; make PY_INSTALL_DIR=${INSTALL_DIR}/Python PY_VERSION=3.6.2 PY_EXEC=python3
+	cd Python3; make PY_INSTALL_DIR=${INSTALL_DIR}/Python PY_VERSION=3.6.2 
 
 Python-3.7.1:
-	cd Python; make PY_INSTALL_DIR=${INSTALL_DIR}/Python PY_VERSION=3.7.1 PY_EXEC=python3
+	cd Python3; make PY_INSTALL_DIR=${INSTALL_DIR}/Python PY_VERSION=3.7.1 
 
 hdf5-1.8.12: 
 	cd hdf5; make HDF5_INSTALL_DIR=${INSTALL_DIR}/hdf5 HDF5_VERSION_MAJOR=1.8 HDF5_VERSION_MINOR=12
