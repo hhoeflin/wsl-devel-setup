@@ -16,5 +16,7 @@ to the file.
 In addition, to set up vundle for nvim, do 
 
 ```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.nvim/bundle/Vundle.vim
+mkdir -p ~/.config/nvim
+touch ~/.config/nvim/init.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
 ```
