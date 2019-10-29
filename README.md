@@ -12,3 +12,9 @@ and add the line
 ```
 
 to the file.
+
+In addition, to set up vundle for vim, do 
+
+```
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
