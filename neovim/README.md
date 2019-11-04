@@ -89,3 +89,11 @@ For further instructions please see the websites
 When using tmux and vim, it is possible that the screen colors do not
 appear to look very well. In order for it to work  it is necessary to 
 call tmux with the '-2' option to force it to set 256 colors.
+
+## Python
+Please note that in a python environment, the following packages should be installed for 
+the configuration to work:
+- pynvim
+- jedi
+- flake8
+- black
