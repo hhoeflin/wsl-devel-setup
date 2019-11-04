@@ -29,6 +29,7 @@ mkdir -p ~/.config/nvim
 cp init.vim ~/.config/nvim
 cp coc-settings.json ~/.config/nvim
 cp plugins.lua ~/.config/nvim
+cp flake8 ~/.config/flake8
 ```
 
 ## Powerline fonts

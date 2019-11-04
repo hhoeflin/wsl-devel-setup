@@ -39,6 +39,9 @@ Plug 'simeji/winresizer'
 " Plug 'Vigemus/iron.nvim'
 Plug 'hhoeflin/iron.nvim' 
 
+" a lot of additional color schemes
+Plug 'rafi/awesome-vim-colorschemes'
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
@@ -48,7 +51,7 @@ call plug#end()            " required
 " **************************************************************
 
 " Set color scheme
-color desert
+color dracula
 
 " leader keys
 let mapleader = "\\"
@@ -154,7 +157,7 @@ let R_buffer_opts = "nowinfixwidth buflisted"
 set nowritebackup
 
 " Better display for messages
-set cmdheight=1
+set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
