@@ -15,6 +15,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" have taboo tabline; enables custom tab labels
+Plug 'gcmt/taboo.vim'
+
 " File browsing
 Plug 'scrooloose/nerdtree'
 
@@ -107,6 +110,8 @@ command! Tab4 exec 'set tabstop=4 shiftwidth=4 expandtab'
 " Airline
 " ========================
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 
+let g:airline#extensions#taboo#enabled = 1 " for taboo settings see below
 let g:airline_powerline_fonts = 1
 " hide the encodign the file is in
 let g:airline_section_y = ''
@@ -122,12 +127,21 @@ call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 
 " ========================
-" Window moving
+" Taboo settings
+" ========================
+let g:taboo_tabline = 0
+" Note that the tab number is automatically displayed by tabline
+let g:taboo_tab_format = "%W %f%m"
+let g:taboo_renamed_tab_format = "%W [%l]%m"
+
+" ========================
+" Window and tab switcher moving
 " ========================
 " moving between different windows by their number
 let i = 1
 while i <= 9
     execute 'nnoremap <silent> <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+    execute 'noremap <silent> <Leader>t' . i . ' ' . i . 'gt<CR>'
     let i = i + 1
 endwhile
 
