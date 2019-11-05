@@ -96,6 +96,9 @@ nnoremap <esc>^[ <esc>^[ "This unsets the "last search pattern" register by hitt
 " exit terminal mode by hitting escape
 tnoremap <Esc> <C-\><C-n>
 
+" reduce the time to timeout
+set timeoutlen=500
+
 " Command for tabs as 2 or 4
 command! Tab2 exec 'set tabstop=2 shiftwidth=2 expandtab'
 command! Tab4 exec 'set tabstop=4 shiftwidth=4 expandtab'

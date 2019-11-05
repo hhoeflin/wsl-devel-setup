@@ -3,3 +3,4 @@ cp ~/.config/nvim/init.vim .
 cp ~/.config/nvim/coc-settings.json .
 cp ~/.config/nvim/plugins.lua .
 cp ~/.config/flake8 .
+cp ~/.tmux.conf .
