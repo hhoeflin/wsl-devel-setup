@@ -149,7 +149,7 @@ config_git config --local status.showUntrackedFiles no
 # set a message to make sure the config_git alias is set
 # set message how to switch to the config in the target branch
 echo -e "\nPlease make sure that you have the following alias set in your .bashrc"
-echo -e "    alias config_git=${config_git_alias}"
+echo -e "    alias config_git='${config_git_alias}'"
 
 
 echo -e "\nIf you have this set you can switch to your target branch with"
