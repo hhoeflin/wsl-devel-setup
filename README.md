@@ -1,22 +1,22 @@
-# Setup before running scripts
-We would like to have permission to run sudo on apt-get without
-giving the password. Therefore type 
-```
-sudo visudo
-```
+# Setting up the environment in Ubuntu Server
 
-and add the line
+In this environment, we expect that a recent version of git and ssh is already installed. 
+
+First, we set the emaila and name on git (otherwise it keeps complaining)
 
 ```
-<myusername> ALL=NOPASSWD: /usr/bin/apt-get
+git config --global user.email "hhoeflin@gmail.com"
+git config --global user.name "Holger Hoefling"
 ```
 
-to the file.
-
-In addition, to set up vundle for nvim, do 
+Next, we want our configuration files local
 
 ```
-mkdir -p ~/.config/nvim
-touch ~/.config/nvim/init.vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+git clone https://github.com/hhoeflin/wsl-devel-setup
+wsl-devel-setup/stage_dotfiles.sh https://github.com/hhoeflin/configfiles
+```
+
+In order to install the required packages, run 
+```
+./setup_ubuntu.sh
 ```
