@@ -19,5 +19,5 @@ wsl-devel-setup/stage_dotfiles.sh https://github.com/hhoeflin/configfiles
 In order to install the required packages, run 
 ```
 cd wsl-devel-setup
-./setup_ubuntu.sh
+sudo ./setup_ubuntu.sh
 ```
