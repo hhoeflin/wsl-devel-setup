@@ -155,6 +155,6 @@ echo -e "    alias config_git='${config_git_alias}'"
 echo -e "\nIf you have this set you can switch to your target branch with"
 echo -e "    config_git checkout ${repo_branch}"
 echo -e "\nTo switch back to the current branch do"
-echo -e "    confit_git checkout ${repo_oldbranch}"
+echo -e "    config_git checkout ${repo_oldbranch}"
 
 
