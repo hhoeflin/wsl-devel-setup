@@ -19,3 +19,4 @@ apt-get --yes install python-dev python-setuptools python-pip zlib1g-dev\
 
 apt-get --yes build-dep r-base python python3
 
+apt-get --yes install lmod
