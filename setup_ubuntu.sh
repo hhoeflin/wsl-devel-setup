@@ -13,7 +13,7 @@ apt-get install -y nodejs
 apt-get --yes install build-essential libssl-dev libxml2-dev pandoc nautilus evince gedit\
 	environment-modules libhdf5-dev qpdf emacs tcl
 
-apt-get --yes install python-dev python-setuptools python-pip python-smbus zlib1g-dev\
+apt-get --yes install python-dev python-setuptools python-pip zlib1g-dev\
 	libsqlite3-dev tk-dev libncursesw5-dev libgdm-dev libc6-dev python-pip\
 	libffi-dev
 
