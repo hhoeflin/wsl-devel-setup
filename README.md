@@ -13,7 +13,6 @@ Next, we want our configuration files local
 
 ```
 git clone https://github.com/hhoeflin/wsl-devel-setup
-wsl-devel-setup/stage_dotfiles.sh https://github.com/hhoeflin/configfiles
 ```
 
 In order to install the required packages, run we need to enable additional sources.
@@ -25,4 +24,10 @@ and uncomment all lines with 'deb-src' at the beginning. Then run:
 ```
 cd wsl-devel-setup
 sudo ./setup_ubuntu.sh
+```
+
+And last we get all our configs.
+```
+cd ..
+wsl-devel-setup/stage_dotfiles.sh https://github.com/hhoeflin/configfiles
 ```
