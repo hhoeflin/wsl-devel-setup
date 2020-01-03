@@ -16,7 +16,12 @@ git clone https://github.com/hhoeflin/wsl-devel-setup
 wsl-devel-setup/stage_dotfiles.sh https://github.com/hhoeflin/configfiles
 ```
 
-In order to install the required packages, run 
+In order to install the required packages, run we need to enable additional sources.
+
+```
+sudo nano /etc/apt/sources.list
+```
+and uncomment all lines with 'deb-src' at the beginning. Then run:
 ```
 cd wsl-devel-setup
 sudo ./setup_ubuntu.sh
